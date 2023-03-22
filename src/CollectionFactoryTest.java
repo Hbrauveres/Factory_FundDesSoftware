@@ -33,7 +33,7 @@ public class CollectionFactoryTest {
         System.out.println("collection4: " + collection4+ " " + collection4.getClass());
 
         try {
-            Collection<String> collection5 = collectionFactory.createInstance(true, IterationOrder.NATURAL, true);
+            Collection<String> collection5 = collectionFactory.createInstance(-1, IterationOrder.NATURAL, true);
             System.out.println("collection5: " + collection5);
         } catch (IllegalArgumentException e) {
             System.out.println("Error: " + e.getMessage());
