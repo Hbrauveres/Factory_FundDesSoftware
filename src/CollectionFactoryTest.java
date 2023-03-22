@@ -7,24 +7,25 @@ public class CollectionFactoryTest {
     public static void main(String[] args) {
         CollectionFactory collectionFactory = CollectionFactory.getInstance();
 
-        Collection<String> collection1 = collectionFactory.createInstance(true, IterationOrder.INSERTION, false);
+        Collection<String> collection1 = collectionFactory.createInstance(3, IterationOrder.INSERTION, false);
         collection1.add("foo");
         collection1.add("bar");
         collection1.add("baz");
         System.out.println("collection1: " + collection1 + " " + collection1.getClass());
 
-        Collection<Integer> collection2 = collectionFactory.createInstance(false, IterationOrder.INSERTION, false);
+        Collection<Integer> collection2 = collectionFactory.createInstance(-1, IterationOrder.INSERTION, false);
         collection2.add(42);
         collection2.add(13);
-        System.out.println("collection2: " + collection2+ " " + collection2.getClass());
+        System.out.println("collection2: " + collection2+ " " + collection2
+                .getClass());
 
-        Collection<String> collection3 = collectionFactory.createInstance(false, IterationOrder.ANY, false);
+        Collection<String> collection3 = collectionFactory.createInstance(-1, IterationOrder.ANY, false);
         collection3.add("foo");
         collection3.add("bar");
         collection3.add("baz");
         System.out.println("collection3: " + collection3+ " " + collection3.getClass());
 
-        Collection<String> collection4 = collectionFactory.createInstance(false, IterationOrder.NATURAL, false);
+        Collection<String> collection4 = collectionFactory.createInstance(-1, IterationOrder.NATURAL, false);
         collection4.add("baz");
         collection4.add("foo");
         collection4.add("bar");

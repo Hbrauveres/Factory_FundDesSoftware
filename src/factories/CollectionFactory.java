@@ -17,17 +17,17 @@ public class CollectionFactory {
         return instance;
     }
 
-    public <T> Collection<T> createInstance(boolean knownSize, IterationOrder order, boolean allowDuplicates) {
-        if (knownSize && order == IterationOrder.INSERTION) {
+    public <T> Collection<T> createInstance(int size, IterationOrder order, boolean allowDuplicates) {
+        if (size != -1 && order == IterationOrder.INSERTION) {
             return new ArrayList<>();
         }
-        if (!knownSize && order == IterationOrder.INSERTION) {
+        if (size == -1 && order == IterationOrder.INSERTION) {
             return new LinkedList<>();
         }
-        if (!knownSize && !allowDuplicates) {
+        if (size == -1 && !allowDuplicates) {
             return new HashSet<>();
         }
-        if (!knownSize && !allowDuplicates && order == IterationOrder.NATURAL) {
+        if (size == -1 && !allowDuplicates && order == IterationOrder.NATURAL) {
             return new TreeSet<>();
         }
         throw new IllegalArgumentException("Invalid parameters");
